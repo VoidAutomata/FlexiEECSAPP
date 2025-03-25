@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FlexiEECSAPP</string>
+    <string-array name="sort_options">
+        <item>Latest First</item>
+        <item>Earliest First</item>
+    </string-array>
+</resources>
