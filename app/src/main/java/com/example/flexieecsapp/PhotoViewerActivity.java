@@ -17,6 +17,7 @@ public class PhotoViewerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_viewer);
+        System.out.println("PhotoViewerActivity");
 
         photoManager = PhotoManager.getInstance();
         currentPosition = getIntent().getIntExtra("position", 0);

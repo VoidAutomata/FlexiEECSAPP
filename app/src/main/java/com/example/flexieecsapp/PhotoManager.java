@@ -12,6 +12,7 @@ public class PhotoManager {
     private List<Photo> photos;
     private boolean isSwipeNavigation = true; // Default to swipe
 
+
     private PhotoManager() {
         photos = generateDummyPhotos();
     }
@@ -30,7 +31,7 @@ public class PhotoManager {
             Calendar cal = Calendar.getInstance();
             cal.add(Calendar.DAY_OF_YEAR, -random.nextInt(365));
             Date date = cal.getTime();
-            list.add(new Photo(i, "Photo " + i, date, R.drawable.photo));
+            //list.add(new Photo(i, "Photo " + i, date, R.drawable.photo));
         }
         return list;
     }
@@ -54,4 +55,9 @@ public class PhotoManager {
     public void setSwipeNavigation(boolean swipeNavigation) {
         isSwipeNavigation = swipeNavigation;
     }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
+    }
 }
+

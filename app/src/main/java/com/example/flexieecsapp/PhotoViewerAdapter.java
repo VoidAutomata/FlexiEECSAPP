@@ -1,5 +1,6 @@
 package com.example.flexieecsapp;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import com.bumptech.glide.Glide;
+
+
+
 
 public class PhotoViewerAdapter extends RecyclerView.Adapter<PhotoViewerAdapter.ViewHolder> {
     private List<Photo> photos;
@@ -27,7 +33,13 @@ public class PhotoViewerAdapter extends RecyclerView.Adapter<PhotoViewerAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Photo photo = photos.get(position);
-        holder.imageView.setImageResource(photo.getImageResource());
+        System.out.println("Loading img from url: "+photo.getImageUrl());
+
+        Glide.with(holder.itemView.getContext())
+                .load(photo.getImageUrl())
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.error_image_foreground)
+                .into(holder.imageView);
     }
 
     @Override

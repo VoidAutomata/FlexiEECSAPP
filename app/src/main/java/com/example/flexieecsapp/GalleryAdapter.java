@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import com.bumptech.glide.Glide;
 
 public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_GRID = 0;
@@ -51,14 +52,25 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Photo photo = photos.get(position);
+
         if (holder instanceof GridViewHolder) {
-            ((GridViewHolder) holder).imageView.setImageResource(photo.getImageResource());
+            Glide.with(context)
+                    .load(photo.getImageUrl())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(((GridViewHolder) holder).imageView);
+
         } else if (holder instanceof ListViewHolder) {
             ListViewHolder listHolder = (ListViewHolder) holder;
-            listHolder.imageView.setImageResource(photo.getImageResource());
+
+            Glide.with(context)
+                    .load(photo.getImageUrl())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(listHolder.imageView);
+
             listHolder.titleTextView.setText(photo.getTitle());
             listHolder.dateTextView.setText(photo.getDate().toString());
         }
+
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, PhotoViewerActivity.class);
             intent.putExtra("position", position);
