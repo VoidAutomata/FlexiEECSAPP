@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.insertPhoto("Forest River", "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0", "2025-04-03");
         dbHelper.insertPhoto("Galaxy", "https://images.unsplash.com/photo-1587840171670-8b850147754e", "2025-04-04");
         dbHelper.insertPhoto("Sunset Beach", "https://images.unsplash.com/photo-1507525428034-b723cf961d3e", "2025-04-05");
-        dbHelper.insertPhoto("Desert Dunes", "https://images.unsplash.com/photo-1606788075760-9c65a3f6d4b6", "2025-04-06");
+        //dbHelper.insertPhoto("Desert Dunes", "https://images.unsplash.com/photo-1606788075760-9c65a3f6d4b6", "2025-04-06");
         dbHelper.insertPhoto("Milky Way", "https://images.unsplash.com/photo-1470770841072-f978cf4d019e", "2025-04-07");
         dbHelper.insertPhoto("Foggy Forest", "https://images.unsplash.com/photo-1501785888041-af3ef285b470", "2025-04-08");
         dbHelper.insertPhoto("Mountain Lake", "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1", "2025-04-09");
