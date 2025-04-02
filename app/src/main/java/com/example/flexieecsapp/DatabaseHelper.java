@@ -72,6 +72,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void deleteAllPhotos() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_PHOTOS, null, null); // Replace TABLE_PHOTOS with your table name.
+        db.close();
+    }
     public void deleteAllExceptFirst() {
         SQLiteDatabase db = this.getWritableDatabase();
 
