@@ -38,10 +38,24 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this); // 🔹 Initialize DB helper
         photoManager = PhotoManager.getInstance();
 
-        //dbHelper.insertPhoto("Space thing", "https://w7.pngwing.com/pngs/691/438/png-transparent-desktop-blue-space-nebula-space-texture-blue-atmosphere.png", "2025-04-01");
+        if (dbHelper.getAllPhotos().getCount() == 0) {
+            dbHelper.insertPhoto(
+                    "Space thing",
+                    "https://w7.pngwing.com/pngs/691/438/png-transparent-desktop-blue-space-nebula-space-texture-blue-atmosphere.png",
+                    "2025-04-01"
+            );
+
+            dbHelper.insertPhoto(
+                    "Mountains",
+                    "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+                    "2025-04-02"
+            );
+        }
+
+
 
         System.out.println("loading photos from database");
-        // 🔹 Load photos from database
+
         loadPhotosFromDatabase();
 
         photoManager.sortDescending(); // Optional default sort
