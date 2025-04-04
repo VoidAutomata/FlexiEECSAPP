@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 import com.bumptech.glide.Glide;
+import java.text.SimpleDateFormat;
 
 public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_GRID = 0;
@@ -68,7 +69,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     .into(listHolder.imageView);
 
             listHolder.titleTextView.setText(photo.getTitle());
-            listHolder.dateTextView.setText(photo.getDate().toString());
+            SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy", java.util.Locale.getDefault());
+            listHolder.dateTextView.setText(sdf.format(photo.getDate()));
         }
 
         holder.itemView.setOnClickListener(v -> {
